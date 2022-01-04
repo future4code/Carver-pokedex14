@@ -16,5 +16,4 @@ O que não funciona:
 - Item 4
 
 
-## Requisições
-![image](https://user-images.githubusercontent.com/80788293/147974430-0197c67f-5f46-45f2-b0a0-333132e83594.png)
+
