@@ -13,7 +13,7 @@ export default function Router(){
                     <Route exact path={'/'}>
                         <HomePage/>
                     </Route>
-                    <Route exact path={'/:name'}>
+                    <Route exact path={'/detail/:name'}>
                         <DetailPage/>
                     </Route>
                     <Route exact path={'/pokedex'}>

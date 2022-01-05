@@ -47,6 +47,10 @@ function HomePage() {
   const {states, setters, requests} = useContext(GlobalContext)
   const history = useHistory();
 
+  const goToDetalhes = (name)=>{
+    history.push(`/detail/${name}`)
+  }
+
 
   useEffect(()=>{
     requests.getPokemons()
@@ -60,7 +64,7 @@ function HomePage() {
         order={pokemon.order}
         url={pokemon.url}
         add={()=> requests.addPokemon(pokemon)}
-        
+        det={()=> goToDetalhes(pokemon.name)}
         
       />
     )

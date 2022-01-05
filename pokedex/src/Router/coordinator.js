@@ -3,8 +3,8 @@ export const goToHome = (history)=>{
 }
 
 
-export const goToDetail = (history)=>{
-    history.push('/:name')
+export const goToDetail = (history, name)=>{
+    history.push(`/detail/${name}`)
 }
 
 
