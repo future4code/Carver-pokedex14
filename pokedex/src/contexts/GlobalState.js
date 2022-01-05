@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import GlobalContext from './GlobalContext'
 import URL from '../constants/url'
+import {goToDetail} from '../Router/coordinator'
+import { useHistory } from 'react-router-dom';
 
 
 const GlobalState = (props)=>{
@@ -10,6 +12,8 @@ const GlobalState = (props)=>{
     const [pokedex, setPokedex] = useState([])
     const [details, setDetails] = useState([])
     const [newPokemon, setNewPokemon] = useState(URL)
+
+    const history = useHistory();
 
     // useEffect(()=>{
     //     getPokemons()
@@ -43,24 +47,7 @@ const GlobalState = (props)=>{
         }
         setPokedex(newList)
         console.log(pokedex)
-    
 
-        // const confereConteudo = false
-
-        // for(let i = 0; i < pokedex.length; i++){
-        //     if(newPoke.name === pokedex[i].name){
-        //         confereConteudo = true
-        //     }
-        // }
-        // confereConteudo === false ? changePokedex(newPoke) : console.log('Você já tem esse pokemon')
-
-    }
-    
-
-    
-    const changePokedex = (newPoke)=>{
-        const newPokedex = [...pokedex, newPoke]
-        setPokedex(newPokedex)
     }
 
 
@@ -79,10 +66,7 @@ const GlobalState = (props)=>{
         setPokedex(newList)
         console.log('excluiu', pokedex)
 
-        // for (let i = 0; i < pokedex.length; i++){
-        //     if(pokedex[i] !== poke) removePoke.push(pokedex[i])
-        // }
-        // setPokedex(removePoke)
+        
     }
 
     const getDetail = (name)=>{
@@ -90,19 +74,25 @@ const GlobalState = (props)=>{
         .then(res =>{
             setDetails(res.data)
             console.log(res.data)
+            console.log(states.details)
         }).catch(err =>{
             console.log(err.message)
         })
     }
 
-    // const getPokemons = ()=>{
-    //     axios.get
+    // const getDetail = (poke, name)=>{
+    //     setDetails(poke)
+    //     goToDetail(name)
     // }
+
 
 
     const requests = {getPokemons, getDetail, addPokemon, removePokedex}
     const states = {pokemons, details, url, pokedex}
     const setters = {setPokemons, setNewPokemon, setUrl, setPokedex}
+
+
+    
     const datas = {requests, states, setters}
 
     return(

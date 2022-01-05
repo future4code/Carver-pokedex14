@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import Icone from '../../Images/icone-plus.png'
 import GlobalContext from "../../contexts/GlobalContext";
 import {goToDetail} from '../../Router/coordinator'
 import { useEffect, useState } from "react/cjs/react.development";
@@ -82,7 +81,7 @@ function PokemonCard(props){
         <span>{props.id}</span>
         <Buttons>
         <button onClick={props.add}>Adicionar</button>
-        <button onClick={() => goToDetail(history) || setters.setUrl(url)}>Ver detalhe</button>
+        <button onClick={props.det}>Ver detalhe</button>
         </Buttons>
         </Card>
         
