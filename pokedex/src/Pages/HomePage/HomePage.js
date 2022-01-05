@@ -52,20 +52,6 @@ function HomePage() {
     requests.getPokemons()
   }, [])
 
-  const newList = ()=>{
-    setters.setNewPokemon(states.pokemons.next)
-  }
-
-  const oldList = ()=>{
-    if(states.pokemons.previous === null){
-      alert('Página não encontrada')
-    }else{
-      setters.setPokemons(states.pokemons.previous)
-    }
-  }
-
-
-
 
   const pokeList = states.pokemons.results && states.pokemons.results.map((pokemon)=>{
     return(

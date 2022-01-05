@@ -43,16 +43,6 @@ const GlobalState = (props)=>{
         }
         setPokedex(newList)
         console.log(pokedex)
-    
-
-        // const confereConteudo = false
-
-        // for(let i = 0; i < pokedex.length; i++){
-        //     if(newPoke.name === pokedex[i].name){
-        //         confereConteudo = true
-        //     }
-        // }
-        // confereConteudo === false ? changePokedex(newPoke) : console.log('Você já tem esse pokemon')
 
     }
     
@@ -79,10 +69,7 @@ const GlobalState = (props)=>{
         setPokedex(newList)
         console.log('excluiu', pokedex)
 
-        // for (let i = 0; i < pokedex.length; i++){
-        //     if(pokedex[i] !== poke) removePoke.push(pokedex[i])
-        // }
-        // setPokedex(removePoke)
+        
     }
 
     const getDetail = (name)=>{
@@ -95,9 +82,6 @@ const GlobalState = (props)=>{
         })
     }
 
-    // const getPokemons = ()=>{
-    //     axios.get
-    // }
 
 
     const requests = {getPokemons, getDetail, addPokemon, removePokedex}
