@@ -4,44 +4,9 @@ import GlobalContext from "../../contexts/GlobalContext";
 import {goToDetail, goToPokedex} from '../../Router/coordinator'
 import styled from "styled-components";
 import { useHistory } from 'react-router-dom';
+import {Div} from './style'
 
 
-const Div = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-`
-
-// const Card = styled.div`
-//     width: 42%;
-//     height: flex;
-//     display: flex;
-//     flex-direction: column;
-//     margin: 15px;
-//     border-radius: 8px;
-//     box-shadow: 0 0 1em gray;
-//     @media(min-width: 768px){
-//         width: 29%;
-//     }
-//     @media(min-width: 1000px){
-//         width: 21.5%;
-//     }
-
-//     img{
-//         width: 95%;
-//         height: 70%;
-//         margin: 0 auto;
-//         margin-top: 15px;
-//         margin-bottom: 15px;
-//         border-radius: 8px;
-//     }
-// `
-
-// const Buttons = styled.div`
-//     text-align: center;
-//     border: 1px solid;
-//     height: ;
-    
-// `
 
 function HomePage() {
   const {states, setters, requests} = useContext(GlobalContext)
