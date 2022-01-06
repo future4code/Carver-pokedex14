@@ -17,9 +17,6 @@ const GlobalState = (props)=>{
 
 
 
-
-    //PEGA POKEMONS
-
     const getPokemons = ()=>{
         const newArray = []
 
@@ -63,6 +60,12 @@ const GlobalState = (props)=>{
 
     //FUNÇÃO QUE AICIONA POKEMON (BOTÃO)
 
+    const addPokemon =(newPoke)=>{
+        
+        const adicionaPoke = pokedex.findIndex(
+            (i)=> {
+              return i.name === newPoke.name
+            })
 
 
 //ANTIGA, SÓ EXCLUIR QUANDO TUDO ESTIVER FUNCIONANDO, KKKK
@@ -106,12 +109,6 @@ const GlobalState = (props)=>{
     }
 
 
-
-
-
-    //REMOVE DA POKEDEX
-
-
     const removePokedex = (poke)=>{
         const removePoke = pokedex.findIndex(
             (i)=> 
@@ -126,13 +123,9 @@ const GlobalState = (props)=>{
         }
         setPokedex(newList)
         console.log('excluiu', pokedex)
+
+        
     }
-
-
-
-
-
-    // FUNÇÃO DE DETALHE NÃO ESTÁ SENDO UTILIZADA
 
     const getDetail = (name)=>{
         axios.get(`${URL}/${name}`)
@@ -145,28 +138,23 @@ const GlobalState = (props)=>{
         })
     }
 
+    // const getDetail = (poke, name)=>{
+    //     setDetails(poke)
+    //     goToDetail(name)
+    // }
 
 
 
-    //CHAMA AS FUNÇÕES
     const requests = {getPokemons, getDetail, addPokemon, removePokedex}
-
-
-    //CHAMA ESTADOS
     const states = {pokemons, details, url, pokedex}
-
-
-    //CHAMA OS SETS
     const setters = {setPokemons, setNewPokemon, setUrl, setPokedex}
 
 
-    //CHAMA AS TRÊS ACIMA
+    
     const datas = {requests, states, setters}
 
-
     return(
-        //ISSO ENVIA PRO APP.JS 
-        <GlobalContext.Provider value={datas}> 
+        <GlobalContext.Provider value={datas}>
             {props.children}
         </GlobalContext.Provider>
     )
