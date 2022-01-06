@@ -8,10 +8,7 @@ import axios from "axios";
 import URL from '../../constants/url'
 
 
-const Div = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-`
+
 
 // const Card = styled.div`
 //     width: 42%;
@@ -62,7 +59,7 @@ function HomePage() {
   
 
 
-  const pokeList = states.pokemons && states.pokemons.map((pokemon)=>{
+  const pokeList = states.pokemons.results && states.pokemons.results.map((pokemon)=>{
     return(
       <PokemonCard key={pokemon.url}
         name={pokemon.name}
@@ -70,7 +67,6 @@ function HomePage() {
         url={pokemon.url}
         add={()=> requests.addPokemon(pokemon)}
         det={()=> goToDetalhes(pokemon.name)}
-        image={pokemon.sprites.front_default}
       />
     )
   })
