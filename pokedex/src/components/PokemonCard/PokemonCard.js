@@ -84,7 +84,6 @@ function PokemonCard(props){
         <button onClick={props.det}>Ver detalhe</button>
         </Buttons>
         </Card>
-        
 
     )
 }
