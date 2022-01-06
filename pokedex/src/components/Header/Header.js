@@ -1,18 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import {useHistory} from 'react-router-dom'
+import logo from '../../Image/logo.png'
 
 const Headerstyle = styled.div`
     width: 100vw;
-    height: 70px;
-    background-color: red;
+    height: 90px;
+    background-color: #950101;
 
     
 `
 
 const Button = styled.div`
     background-color: transparent;
-    width: 9rem;
+    width: 11rem;
     height: 100%;
     cursor: pointer;
     display: flex;
@@ -20,9 +21,10 @@ const Button = styled.div`
     align-items: center;
     justify-content: center;
 
-    h1{
+    img{
         margin: 0;
-        color: #fff;
+        width: 100%;
+        height: 80%;
     }
 `
 
@@ -38,7 +40,7 @@ function Header() {
     <Headerstyle >
      <Button
      onClick={goToHome}
-     ><h1>Pokedex</h1></Button>
+     ><img src={logo}/></Button>
     </Headerstyle>
   );
 }

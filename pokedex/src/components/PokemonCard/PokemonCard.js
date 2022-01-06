@@ -48,6 +48,10 @@ const Buttons = styled.div`
     button{
         height: 30px;
         margin: 10px 0;
+        background-color: #FED049;
+        border-style: hidden;
+        border-radius: 8px;
+
     }
     `
 
