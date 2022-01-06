@@ -61,15 +61,15 @@ function PokemonCard(props){
     const url = props.url
     const history = useHistory();
 
-    // useEffect(()=>{
-    //     axios.get(`${url}`)
-    //     .then((res) =>{
-    //         console.log(res.data)
-    //         setImages(res.data.sprites.front_default)
-    //     }).catch((err) =>{
-    //         console.log(err)
-    //     })
-    // }, [url])
+    useEffect(()=>{
+        axios.get(`${url}`)
+        .then((res) =>{
+            console.log(res.data)
+            setImages(res.data.sprites.front_default)
+        }).catch((err) =>{
+            console.log(err)
+        })
+    }, [url])
 
     
 
@@ -78,8 +78,7 @@ function PokemonCard(props){
     return(
 
         <Card >
-        <img src={props.image} alt={props.name}/>
-        {/* <img src={images} alt={props.name}/> */}
+        <img src={images} alt={props.name}/>
         <h2>{props.name} </h2>
         <span>{props.id}</span>
         <Buttons>
