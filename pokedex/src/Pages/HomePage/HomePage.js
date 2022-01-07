@@ -56,11 +56,12 @@ function HomePage() {
   }, [])
 
 
-  
+
 
 
   const pokeList = states.pokemons.results && states.pokemons.results.map((pokemon)=>{
     return(
+
       <PokemonCard key={pokemon.url}
         name={pokemon.name}
         order={pokemon.order}
@@ -70,7 +71,7 @@ function HomePage() {
       />
     )
   })
-  
+
   return (
     <Div >
     {pokeList === [] ? <p>Loading</p> : pokeList}

@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 //
 
 
-const Card = styled.div`
+export const Card = styled.div`
     width: 42%;
     height: flex;
     display: flex;
@@ -38,7 +38,7 @@ const Card = styled.div`
     }
 `
 
-const Buttons = styled.div`
+export const Buttons = styled.div`
     text-align: center;
     width: 100%;
     height: flex;
@@ -71,7 +71,7 @@ function PokemonCard(props){
         })
     }, [url])
 
-    
+
 
    
     
