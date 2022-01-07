@@ -15,9 +15,6 @@ const GlobalState = (props)=>{
 
     const history = useHistory();
 
-    // useEffect(()=>{
-    //     getPokemons()
-    // }, [newPokemon])
 
 
     const getPokemons = ()=>{
@@ -30,15 +27,18 @@ const GlobalState = (props)=>{
         })
     }
 
-    const addPokemon =(newPoke)=>{
-        
+
+
+
+    //FUNÇÃO QUE AICIONA POKEMON (BOTÃO)
+
+   const addPokemon =(newPoke)=>{
+
         const adicionaPoke = pokedex.findIndex(
             (i)=> {
               return i.name === newPoke.name
             })
-
         const newList = [...pokedex]
-
         if(adicionaPoke === -1){
             newList.push({...newPoke, amount: 1})
             console.log(states.pokedex[adicionaPoke])
@@ -47,8 +47,29 @@ const GlobalState = (props)=>{
         }
         setPokedex(newList)
         console.log(pokedex)
-
     }
+
+
+
+
+
+
+    // const addPokemon = (newPoke)=>{
+    //     const index = pokemons.findIndex((i)=> i.name === newPoke.name)
+    //     const newList = [...pokemons]
+    //     newList.splice(index, 1)
+    //     const ordem = newList.sort((a, b)=>{
+    //         return a.id - b.id
+    //     })
+    //     const newPokedex = [...pokedex, newPoke]
+    //     const ordemPokedex = newPokedex.sort((a, b)=>{
+    //         return a.id - b.id
+    //     })
+    //     setPokemons(ordem)
+    //     setPokedex(ordemPokedex)
+    //     console.log(pokemons)
+    //     console.log(pokedex)
+    // }
 
 
     const removePokedex = (poke)=>{
@@ -65,9 +86,9 @@ const GlobalState = (props)=>{
         }
         setPokedex(newList)
         console.log('excluiu', pokedex)
-
-        
     }
+
+
 
     const getDetail = (name)=>{
         axios.get(`${URL}/${name}`)

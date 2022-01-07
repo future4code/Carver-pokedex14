@@ -2,14 +2,13 @@ import React, { useContext, useEffect } from "react";
 import PokemonCard from "../../components/PokemonCard/PokemonCard";
 import GlobalContext from "../../contexts/GlobalContext";
 import {goToDetail, goToPokedex} from '../../Router/coordinator'
-import styled from "styled-components";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
+import {Div, Card, Buttons} from './style'
+import axios from "axios";
+import URL from '../../constants/url'
 
 
-const Div = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-`
+
 
 // const Card = styled.div`
 //     width: 42%;
@@ -57,6 +56,9 @@ function HomePage() {
   }, [])
 
 
+  
+
+
   const pokeList = states.pokemons.results && states.pokemons.results.map((pokemon)=>{
     return(
       <PokemonCard key={pokemon.url}
@@ -65,7 +67,6 @@ function HomePage() {
         url={pokemon.url}
         add={()=> requests.addPokemon(pokemon)}
         det={()=> goToDetalhes(pokemon.name)}
-        
       />
     )
   })

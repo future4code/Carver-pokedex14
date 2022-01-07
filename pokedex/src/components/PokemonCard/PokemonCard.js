@@ -6,7 +6,7 @@ import { useEffect, useState } from "react/cjs/react.development";
 import axios from "axios";
 import { useHistory } from 'react-router-dom';
 
-
+//
 
 
 const Card = styled.div`
@@ -71,11 +71,13 @@ function PokemonCard(props){
         })
     }, [url])
 
+    
+
    
     
     return(
 
-        <Card>
+        <Card >
         <img src={images} alt={props.name}/>
         <h2>{props.name} </h2>
         <span>{props.id}</span>
