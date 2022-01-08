@@ -67,7 +67,7 @@ function PokemonCard(props){
             console.log(res.data)
             setImages(res.data.sprites.front_default)
         }).catch((err) =>{
-            console.log(err)
+            console.log(err.message)
         })
     }, [url])
 
@@ -83,6 +83,7 @@ function PokemonCard(props){
         <span>{props.id}</span>
         <Buttons>
         <button onClick={props.add}>Adicionar</button>
+        <button onClick={props.del}>nar</button>
         <button onClick={props.det}>Ver detalhe</button>
         </Buttons>
         </Card>

@@ -12,18 +12,19 @@ const GlobalState = (props)=>{
     const [pokedex, setPokedex] = useState([])
     const [details, setDetails] = useState([])
     const [newPokemon, setNewPokemon] = useState(URL)
-
+    const [capture, setCapture] = useState(false)
     const history = useHistory();
 
-
+    useEffect(()=>{
+        getPokemons()
+    }, [pokedex])
 
     const getPokemons = ()=>{
         axios.get(newPokemon)
         .then(res=>{
             setPokemons(res.data)
-            console.log(res.data)
         }).catch(err =>{
-            console.log(err)
+            alert(err)
         })
     }
 
@@ -34,59 +35,47 @@ const GlobalState = (props)=>{
 
    const addPokemon =(newPoke)=>{
 
-        const adicionaPoke = pokedex.findIndex(
+        const adicionaPoke = pokedex.some(
             (i)=> {
               return i.name === newPoke.name
             })
-        const newList = [...pokedex]
-        if(adicionaPoke === -1){
-            newList.push({...newPoke, amount: 1})
-            console.log(states.pokedex[adicionaPoke])
+        
+        if(!adicionaPoke){
+            const newList = [...pokedex, newPoke]
+            setPokedex(newList)
+            setCapture(true)
+            
         }else{
-            console.log('Pokemon já adicionado')
+            console.log('Pokemon já adicionado!')
         }
-        setPokedex(newList)
-        console.log(pokedex)
+        
+        
     }
 
-
-
-
-
-
-    // const addPokemon = (newPoke)=>{
-    //     const index = pokemons.findIndex((i)=> i.name === newPoke.name)
-    //     const newList = [...pokemons]
-    //     newList.splice(index, 1)
-    //     const ordem = newList.sort((a, b)=>{
-    //         return a.id - b.id
-    //     })
-    //     const newPokedex = [...pokedex, newPoke]
-    //     const ordemPokedex = newPokedex.sort((a, b)=>{
-    //         return a.id - b.id
-    //     })
-    //     setPokemons(ordem)
-    //     setPokedex(ordemPokedex)
-    //     console.log(pokemons)
-    //     console.log(pokedex)
-    // }
 
 
     const removePokedex = (poke)=>{
-        const removePoke = pokedex.findIndex(
+        const onPoke = pokedex.some(
             (i)=> 
             {
-                return i.id === poke.id
+                return i.name === poke.name
             })
-        let newList = [...pokedex]
-        if(newList[removePoke].amount === 1){
-            newList.splice(removePoke, 1)
+        if(onPoke){
+            const index = pokedex.findIndex((pokemon)=>{
+                return pokemon.name === poke.name
+            })
+            const newList = [...pokedex, poke]
+            setPokemons(newList)
+            setCapture(false)
+            pokedex.splice(index, 1)
+            console.log('deu certo')
         }else{
-            newList[removePoke].amount -= 1
+            alert('Não está na pokemon')
         }
-        setPokedex(newList)
         console.log('excluiu', pokedex)
     }
+
+
 
 
 
@@ -101,10 +90,7 @@ const GlobalState = (props)=>{
         })
     }
 
-    // const getDetail = (poke, name)=>{
-    //     setDetails(poke)
-    //     goToDetail(name)
-    // }
+
 
 
 

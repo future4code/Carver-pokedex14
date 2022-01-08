@@ -26,7 +26,7 @@ function PokedexPage() {
       url={pokemon.url}
       add={()=> requests.addPokemon(pokemon)}
       det={()=> goToDetail(history, pokemon.name)}
-      
+      del={()=> requests.removePokedex(pokemon)}
     />
     )
   })
