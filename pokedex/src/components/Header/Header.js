@@ -2,31 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import {useHistory} from 'react-router-dom'
 import logo from '../../Image/logo.png'
+import {Headerstyle, Button, Button2} from './style'
+import { goToPokedex } from "../../Router/coordinator";
 
-const Headerstyle = styled.div`
-    width: 100vw;
-    height: 90px;
-    background-color: #950101;
-
-    
-`
-
-const Button = styled.div`
-    background-color: transparent;
-    width: 11rem;
-    height: 100%;
-    cursor: pointer;
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-
-    img{
-        margin: 0;
-        width: 100%;
-        height: 80%;
-    }
-`
 
 
 function Header() {
@@ -36,11 +14,30 @@ function Header() {
         history.push('/')
     }
 
+    const buttonn = ()=>{
+        switch(history.location.pathname){
+            case '/':
+                return(
+                    <div>
+                        <Button2 onClick={()=> goToPokedex(history)}>Ver pokedex</Button2>
+                    </div>
+                )
+                default:
+                    return(
+                        <div>
+                            <Button2 onClick={()=> goToHome}>Voltar</Button2>
+                        </div>
+                    )
+        }
+    }
+
+
   return (
     <Headerstyle >
      <Button
      onClick={goToHome}
      ><img src={logo}/></Button>
+     {buttonn()}
     </Headerstyle>
   );
 }

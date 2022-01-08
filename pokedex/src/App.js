@@ -7,7 +7,11 @@ const GlobalStyle = createGlobalStyle`
   body{
     margin: 0;
     padding: 0;
-    background-color: #630000;
+    background-color: #FBFFE2;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'Oxygen', sans-serif;
+    
   }
 `
 

@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
 import GlobalContext from "../../contexts/GlobalContext";
-import {goToDetail} from '../../Router/coordinator'
 import { useEffect, useState } from "react/cjs/react.development";
 import axios from "axios";
 import { useHistory } from 'react-router-dom';
-import {Card, Buttons} from './style'
+import {Card, Buttons, Button} from './style'
+
 
    
 
-function PokemonCard(props){
+function CardHome(props){
     const {setters} = useContext(GlobalContext)
     const [images, setImages] = useState('')
     const url = props.url
@@ -30,17 +29,17 @@ function PokemonCard(props){
    
     
     return(
-
+    <>
         <Card >
         <img src={images} alt={props.name}/>
         <h2>{props.name} </h2>
         <span>{props.id}</span>
         <Buttons>
-        <button onClick={props.del}>Deletar</button>
-        <button onClick={props.det}>Ver detalhes</button>
+        <Button onClick={props.add}>Adicionar</Button>
+        <Button onClick={props.det}>Ver detalhes</Button>
         </Buttons>
         </Card>
-
+        </>
     )
 }
-export default PokemonCard
+export default CardHome
