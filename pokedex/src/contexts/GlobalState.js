@@ -23,7 +23,7 @@ const GlobalState = (props)=>{
         .then(res=>{
             setPokemons(res.data)
         }).catch(err =>{
-            alert(err, 'Erro ao carregar')
+            console.log(err, 'Erro ao carregar')
         })
     }
 
@@ -45,7 +45,7 @@ const GlobalState = (props)=>{
             setCapture(true)
             
         }else{
-            alert('Pokemon já adicionado!')
+            console.log('Pokemon já adicionado!')
         }
         
         
@@ -65,11 +65,10 @@ const GlobalState = (props)=>{
             })
             const newList = [...pokedex, poke]
             setPokemons(newList)
-            setCapture(false)
             pokedex.splice(index, 1)
             alert('Pokemon excluído com sucesso!')
         }else{
-            alert('Não está na pokemon')
+            console.log('Não está na pokemon')
         }
         
     }
