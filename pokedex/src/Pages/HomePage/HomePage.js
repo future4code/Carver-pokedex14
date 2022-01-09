@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import PokemonCard from "../../components/PokemonCard/PokemonCard";
 import GlobalContext from "../../contexts/GlobalContext";
 import {goToDetail, goToPokedex} from '../../Router/coordinator'
 import { useHistory } from 'react-router-dom'
-import {Div, Card, Buttons} from './style'
+import {Div} from './style'
 import axios from "axios";
 import URL from '../../constants/url'
+import CardHome from '../../components/Card/Card'
 
 
 
@@ -38,25 +38,13 @@ function HomePage() {
 
 
 
-  // const pokeList = states.pokemons.results && states.pokemons.results.map((pokemon)=>{
-  //   return(
-
-  //     <PokemonCard key={pokemon.url}
-  //       name={pokemon.name}
-  //       order={pokemon.order}
-  //       url={pokemon.url}
-  //       add={()=> requests.addPokemon(pokemon)}
-  //       det={()=> goToDetalhes(pokemon.name)}
-  //     />
-  //   )
-  // })
-
   return (
+    <>
     <Div >
-    {/* {pokeList === [] ? <p>Loading</p> : pokeList} */}
-    {arrayPokemons && arrayPokemons.map((pokemon)=>{
+    
+    {arrayPokemons === [] ? <p>Loading</p> : arrayPokemons && arrayPokemons.map((pokemon)=>{
     return(
-      <PokemonCard key={pokemon.name}
+      <CardHome key={pokemon.name}
         name={pokemon.name}
         order={pokemon.order}
         url={pokemon.url}
@@ -66,9 +54,9 @@ function HomePage() {
       />
     )
   })} 
-  <button onClick={()=> goToPokedex(history)}>Ir para pokedex</button>
-
     </Div>
+    {/* <button onClick={()=> goToPokedex(history)}>Ir para pokedex</button> */}
+    </>
   );
 }
 

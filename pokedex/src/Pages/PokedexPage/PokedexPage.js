@@ -36,7 +36,7 @@ function PokedexPage() {
      
       {pokedexList === [] ? <p>Loading</p> : pokedexList}
       {/* {pokedexList} */}
-      <button onClick={() => goToHome(history)}>voltar para lista de pokemons</button>
+      {/* <button onClick={() => goToHome(history)}>voltar para lista de pokemons</button> */}
     </Div>
   );
 }

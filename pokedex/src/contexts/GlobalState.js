@@ -2,7 +2,6 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import GlobalContext from './GlobalContext'
 import URL from '../constants/url'
-import {goToDetail} from '../Router/coordinator'
 import { useHistory } from 'react-router-dom';
 
 
@@ -17,14 +16,14 @@ const GlobalState = (props)=>{
 
     useEffect(()=>{
         getPokemons()
-    }, [pokedex])
+    }, [])
 
     const getPokemons = ()=>{
         axios.get(newPokemon)
         .then(res=>{
             setPokemons(res.data)
         }).catch(err =>{
-            alert(err)
+            console.log(err, 'Erro ao carregar')
         })
     }
 
@@ -66,13 +65,12 @@ const GlobalState = (props)=>{
             })
             const newList = [...pokedex, poke]
             setPokemons(newList)
-            setCapture(false)
             pokedex.splice(index, 1)
-            console.log('deu certo')
+            alert('Pokemon excluído com sucesso!')
         }else{
-            alert('Não está na pokemon')
+            console.log('Não está na pokemon')
         }
-        console.log('excluiu', pokedex)
+        
     }
 
 
