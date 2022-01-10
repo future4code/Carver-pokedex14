@@ -5,8 +5,8 @@ Nome dos integrantes:
 - Marco Raphael Dantas Campos
 - Mariana Stefani Santos de Jesus
 
-Link do Surge: https://lz9f4.csb.app/
-(Como já informado, tive problemas com o surge)
+Link do Surge: https://guarded-disgust.surge.sh/
+
 
 O que funciona:
 - Página home, onde você pode adicionar à pokedex, ver detalhes e ir para a pokedex.
@@ -16,7 +16,7 @@ O que funciona:
 
 O que não funciona: 
 - Na página de detalhes não tem o botão para adicionar ou remover o pokemon.
-- Link do surge.
+
 
 Imagens:
 
