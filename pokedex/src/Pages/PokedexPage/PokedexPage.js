@@ -16,7 +16,6 @@ function PokedexPage() {
   const history = useHistory()
   const {states, setters, requests} = useContext(GlobalContext)
 
-  console.log(states)
 
   const pokedexList = states.pokedex.map((pokemon)=>{
     return(

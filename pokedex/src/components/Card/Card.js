@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import GlobalContext from "../../contexts/GlobalContext";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useHistory } from 'react-router-dom';
 import {Card, Buttons, Button} from './style'

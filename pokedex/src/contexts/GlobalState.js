@@ -23,7 +23,7 @@ const GlobalState = (props)=>{
         .then(res=>{
             setPokemons(res.data)
         }).catch(err =>{
-            console.log(err, 'Erro ao carregar')
+            alert(err, 'Erro ao carregar')
         })
     }
 
@@ -45,7 +45,7 @@ const GlobalState = (props)=>{
             setCapture(true)
             
         }else{
-            console.log('Pokemon já adicionado!')
+            alert('Pokemon já adicionado!')
         }
         
         
@@ -68,7 +68,7 @@ const GlobalState = (props)=>{
             pokedex.splice(index, 1)
             alert('Pokemon excluído com sucesso!')
         }else{
-            console.log('Não está na pokemon')
+            alert('Não está na pokemon')
         }
         
     }
@@ -81,10 +81,9 @@ const GlobalState = (props)=>{
         axios.get(`${URL}/${name}`)
         .then(res =>{
             setDetails(res.data)
-            console.log(res.data)
-            console.log(states.details)
+            
         }).catch(err =>{
-            console.log(err.message)
+            alert(err.message)
         })
     }
 
