@@ -13,11 +13,10 @@ function DetailPage() {
       .get(`${URL}/${params.name}`)
       .then((res) => {
         setPokemon(res.data);
-        console.log(res.data);
-        console.log(pokemon);
+        
       })
       .catch((err) => {
-        console.log(err.message);
+        alert('Deu erro!', err.message);
       });
   };
 

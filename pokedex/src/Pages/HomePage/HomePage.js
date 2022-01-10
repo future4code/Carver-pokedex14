@@ -1,10 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import GlobalContext from "../../contexts/GlobalContext";
-import {goToDetail, goToPokedex} from '../../Router/coordinator'
 import { useHistory } from 'react-router-dom'
 import {Div} from './style'
-import axios from "axios";
-import URL from '../../constants/url'
 import CardHome from '../../components/Card/Card'
 
 
